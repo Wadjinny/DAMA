@@ -1,9 +1,11 @@
 window.onload=()=>{
     let tour=true
+    let isFin=false
     track=[[0,0,0],[0,0,0],[0,0,0]]
     let i=v=>Math.floor(v/3)
     let j=v=>v%3
     function myF(e){
+        if (isFin) return
         let el=e.path[0]
         if(el.tagName!="TD") return
         let ind=parseInt(el.getAttribute("data_ind"))
@@ -25,14 +27,20 @@ window.onload=()=>{
             v.innerHTML=isEmpty
         })
     }
-    window.reset=()=>track=[[0,0,0],[0,0,0],[0,0,0]]
+    window.reset=()=>{track=[[0,0,0],[0,0,0],[0,0,0]];isFin=false}
     function check(){
-        let row=[]
+        row=[track[0][0]+track[1][1]+track[2][2]]
         for(let e=0;e<3;e++) row.push(track[e][0]+track[e][1]+track[e][2])
-        let col=[]
+        col=[track[0][2]+track[1][1]+track[2][0]]
         for(let e=0;e<3;e++) col.push(track[0][e]+track[1][e]+track[2][e])
-        if(row.indexOf(-3)>=0|row.indexOf(-3)>=0) alert("vert a gagné")
-        if( col.indexOf(3)>=0|col.indexOf(3)>=0) alert("rouge a gagné")
+        if(row.indexOf(-3)>=0|col.indexOf(-3)>=0){      
+            alert("vert a gagné");
+            isFin=true
+        }
+        if( col.indexOf(3)>=0|row.indexOf(3)>=0){
+                alert("rouge a gagné")
+                isFin=true
+            }
     }
 
 }
