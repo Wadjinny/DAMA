@@ -1,0 +1,15 @@
+body{
+    display: flex;
+}
+td{
+    width: 25vmin;
+    height: 25vmin;
+    background-color: gray;
+}
+table{
+    margin: auto;
+    margin-top: 10vh;
+}
+img{
+    width: 100%;
+}
