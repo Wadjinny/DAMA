@@ -1,12 +1,60 @@
-td{
+td {
+    position: relative;
     width: 25vmin;
     height: 25vmin;
     background-color: gray;
+    animation-name: init;
+    animation-duration: .55s;
+    animation-delay: 0;
 }
-table{
+
+table {
     margin: auto;
     margin-top: 10vh;
 }
-img{
+
+img {
     width: 100%;
+}
+@keyframes init{
+    from{
+        position: relative;
+        top:-50px
+    }
+    to{
+        top:0px;
+    }
+}
+@keyframes fadein {
+    from {
+        opacity: 0;
+        border-radius:50%;
+    }
+
+    to {
+        opacity: 1;
+        
+        border-radius:0;
+    }
+}
+@keyframes fadeout{
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+        
+        border-radius:50%;
+    }
+}
+
+img {
+    animation-name: fadein;
+    animation-duration: .5s;
+}
+.fadeout{
+    opacity: 0;
+    animation-name: fadeout;
+    animation-duration: .5s;
 }
